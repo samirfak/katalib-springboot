@@ -1,9 +1,12 @@
 package fr.codebusters.libkata.Model;
 
+import javax.persistence.Id;
+
 public class Book {
+    @Id
     private String name;
     private String author;
-    private enum Category {KIDS, NOVEL, SCIENTIFIC};
+
     private Category category;
     public Book(String name, String author, Category category) {
         this.name = name;
