@@ -1,7 +1,8 @@
 package fr.codebusters.libkata.Model;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
-
+@Entity
 public class Book {
     @Id
     private String name;
@@ -24,5 +25,17 @@ public class Book {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

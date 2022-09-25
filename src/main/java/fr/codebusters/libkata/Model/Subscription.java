@@ -14,6 +14,18 @@ public class Subscription {
         this.user = user;
     }
 
+    public void setSubscriptionId(Integer subscriptionId) {
+        this.subscriptionId = subscriptionId;
+    }
+
+    public void setType(SubscriptionTypes type) {
+        this.type = type;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Integer getSubscriptionId() {
         return subscriptionId;
     }

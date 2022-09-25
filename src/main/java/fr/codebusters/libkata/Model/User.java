@@ -11,6 +11,18 @@ public class User {
         this.mail = mail;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
     public String getName() {
         return name;
     }
