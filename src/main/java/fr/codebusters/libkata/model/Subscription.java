@@ -1,7 +1,8 @@
-package fr.codebusters.libkata.Model;
+package fr.codebusters.libkata.model;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
-
+@Entity
 public class Subscription {
     @Id
     private Integer subscriptionId;

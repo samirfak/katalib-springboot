@@ -1,7 +1,7 @@
-package fr.codebusters.libkata.Controller;
+package fr.codebusters.libkata.controller;
 
-import fr.codebusters.libkata.Model.Book;
-import fr.codebusters.libkata.Model.Category;
+import fr.codebusters.libkata.model.Book;
+import fr.codebusters.libkata.model.Category;
 import fr.codebusters.libkata.repository.BookRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

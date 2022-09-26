@@ -1,7 +1,7 @@
 package fr.codebusters.libkata.repository;
 
-import fr.codebusters.libkata.Model.Book;
-import fr.codebusters.libkata.Model.Category;
+import fr.codebusters.libkata.model.Book;
+import fr.codebusters.libkata.model.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
