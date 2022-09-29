@@ -3,10 +3,7 @@ package fr.codebusters.libkata.service;
 import fr.codebusters.libkata.model.*;
 import fr.codebusters.libkata.repository.BorrowingRepository;
 import fr.codebusters.libkata.repository.SubscriptionRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import static org.springframework.http.HttpStatus.METHOD_NOT_ALLOWED;
 
 @Service
 public class BorrowingServiceImpl implements BorrowingService {
@@ -19,12 +16,20 @@ public class BorrowingServiceImpl implements BorrowingService {
     }
 
     @Override
-    public ResponseEntity<Borrowing> borrow(Borrowing brw) {
+    public Borrowing borrow(Borrowing brw) {
         Subscription sub = brw.getSubscription();
         Book book = brw.getBook();
         if (sub.getType() == SubscriptionTypes.JUNIOR && book.getCategory() != Category.KIDS) {
-            return ResponseEntity.status(METHOD_NOT_ALLOWED).build() ;
+            //return ResponseEntity.status(METHOD_NOT_ALLOWED).build() ;
+            return null;
         }
-        return null;
+        //Todo check number of current borrows of the user
+        Borrowing newBrw = brwRepository.save(brw);
+        return newBrw ;
+    }
+
+    @Override
+    public void returnBook(Borrowing brw) {
+        brwRepository.delete(brw);
     }
 }
