@@ -2,11 +2,14 @@ package fr.codebusters.libkata.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 @Entity
 public class Subscription {
     @Id
     private Integer subscriptionId;
     private SubscriptionTypes type;
+    @OneToOne
     private User user;
 
     public Subscription(Integer subscriptionId, SubscriptionTypes type, User user) {

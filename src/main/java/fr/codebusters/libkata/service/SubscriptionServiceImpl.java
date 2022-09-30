@@ -2,11 +2,12 @@ package fr.codebusters.libkata.service;
 
 import fr.codebusters.libkata.model.Subscription;
 import fr.codebusters.libkata.model.SubscriptionTypes;
-import fr.codebusters.libkata.model.User;
 import fr.codebusters.libkata.repository.SubscriptionRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class SubscriptionServiceImpl implements SubscriptionService {
     private final SubscriptionRepository subscriptionRepository;
 
@@ -16,19 +17,17 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
     @Override
     public Subscription subscribe(Subscription sub) {
-        User user = sub.getUser();
+        var user = sub.getUser();
         if (user.getAge() < 12 && sub.getType() != SubscriptionTypes.JUNIOR) {
-            return null ;
+            throw new RuntimeException("User ...") ;
         }
 
-        Subscription newSub = subscriptionRepository.save(sub);
-        return newSub;
+        return subscriptionRepository.save(sub);
     }
 
     @Override
     public Optional<Subscription> getSubscriptionInfo(Integer sId) {
-        Optional<Subscription> subOpt = subscriptionRepository.findById(sId);
-        return subOpt;
+        return subscriptionRepository.findById(sId);
     }
 
 

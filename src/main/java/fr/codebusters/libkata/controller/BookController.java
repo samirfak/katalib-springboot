@@ -2,7 +2,6 @@ package fr.codebusters.libkata.controller;
 
 import fr.codebusters.libkata.model.Book;
 import fr.codebusters.libkata.model.Category;
-import fr.codebusters.libkata.repository.BookRepository;
 import fr.codebusters.libkata.service.BookService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +13,11 @@ import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
 public class BookController {
-    private final BookRepository bookRepository;
-    private BookService bookService;
 
-    public BookController(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
+    private final BookService bookService;
+
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
     }
 
     @GetMapping("v1/books/{name}")

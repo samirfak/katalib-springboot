@@ -3,10 +3,12 @@ package fr.codebusters.libkata.service;
 import fr.codebusters.libkata.model.Book;
 import fr.codebusters.libkata.model.Category;
 import fr.codebusters.libkata.repository.BookRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class BookServiceImpl implements BookService{
     private BookRepository bookRepository;
     public BookServiceImpl() {
@@ -35,7 +37,6 @@ public class BookServiceImpl implements BookService{
 
     @Override
     public Book addBook(Book book) {
-        Book newBook = bookRepository.save(book);
-        return newBook;
+        return bookRepository.save(book);
     }
 }

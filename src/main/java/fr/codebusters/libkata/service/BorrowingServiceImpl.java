@@ -21,11 +21,10 @@ public class BorrowingServiceImpl implements BorrowingService {
         Book book = brw.getBook();
         if (sub.getType() == SubscriptionTypes.JUNIOR && book.getCategory() != Category.KIDS) {
             //return ResponseEntity.status(METHOD_NOT_ALLOWED).build() ;
-            return null;
+           throw new RuntimeException("XXX") ;
         }
         //Todo check number of current borrows of the user
-        Borrowing newBrw = brwRepository.save(brw);
-        return newBrw ;
+        return brwRepository.save(brw);
     }
 
     @Override

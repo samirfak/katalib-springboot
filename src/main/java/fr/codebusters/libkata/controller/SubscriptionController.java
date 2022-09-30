@@ -12,10 +12,11 @@ import static org.springframework.http.HttpStatus.CREATED;
 @RestController
 public class SubscriptionController {
     private final SubscriptionRepository subscriptionRepository;
-    private SubscriptionService subscriptionService;
+    private final SubscriptionService subscriptionService;
 
-    public SubscriptionController(SubscriptionRepository subscriptionRepository) {
+    public SubscriptionController(SubscriptionRepository subscriptionRepository, SubscriptionService subscriptionService) {
         this.subscriptionRepository = subscriptionRepository;
+        this.subscriptionService = subscriptionService;
     }
 
     @PostMapping("v1/subscriptions/subscribe")

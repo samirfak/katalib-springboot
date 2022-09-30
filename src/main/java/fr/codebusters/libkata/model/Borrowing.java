@@ -2,12 +2,16 @@ package fr.codebusters.libkata.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 @Entity
 public class Borrowing {
     @Id
     private Integer id;
+    @OneToOne
     private Subscription subscription;
     private Integer duration;//in days
+    @OneToOne
     private Book book;
 
     public Book getBook() {
